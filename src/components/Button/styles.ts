@@ -1,12 +1,13 @@
 import styled, { css, DefaultTheme } from 'styled-components'
-
 import media from 'styled-media-query'
+
+import { darken } from 'polished'
 
 import { ButtonProps } from '.'
 
-type WrapperProps = { hasIcon: boolean } & Pick<
+export type WrapperProps = { hasIcon: boolean } & Pick<
   ButtonProps,
-  'size' | 'fullWidth'
+  'size' | 'fullWidth' | 'minimal'
 >
 
 const WrapperModifiers = {
@@ -40,28 +41,38 @@ const WrapperModifiers = {
   `,
   fullWidth: () => css`
     width: 100%;
+  `,
+  minimal: (theme: DefaultTheme) => css`
+    background: transparent;
+    color: ${theme.colors.primary};
+
+    &:hover {
+      background: transparent;
+      color: ${darken(0.2, theme.colors.primary)};
+    }
   `
 }
 
 export const Wrapper = styled.button<WrapperProps>`
-  ${({ theme, size, fullWidth, hasIcon }) => css`
+  ${({ theme, size, fullWidth, hasIcon, minimal }) => css`
     display: inline-flex;
     align-items: center;
     justify-content: center;
     border: none;
     text-decoration: none;
     cursor: pointer;
+
+    font-family: ${theme.font.family};
+    border-radius: ${theme.border.radius};
+    padding: ${theme.spacings.xxsmall};
+
+    color: ${theme.colors.white};
     background: linear-gradient(
       178.59deg,
       #ff5f5f -14.51%,
       #f062c0 102.86%,
       #f23131 102.86%
     );
-    border-radius: 4px;
-    color: ${theme.colors.white};
-    font-family: ${theme.font.family};
-    border-radius: ${theme.border.radius};
-    padding: ${theme.spacings.xxsmall};
 
     &:focus {
       box-shadow: 0 0 0 3px ${theme.colors.secondary};
@@ -81,5 +92,6 @@ export const Wrapper = styled.button<WrapperProps>`
     ${!!size && WrapperModifiers[size](theme)}
     ${!!fullWidth && WrapperModifiers.fullWidth()}
     ${!!hasIcon && WrapperModifiers.withIcons(theme)}
+    ${!!minimal && WrapperModifiers.minimal(theme)}
   `}
 `

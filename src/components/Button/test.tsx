@@ -55,6 +55,14 @@ describe('<Button />', () => {
     expect(screen.getByText(/Buy/i)).toBeInTheDocument()
   })
 
+  it('should render a button with minimal display', () => {
+    renderWithTheme(
+      <Button minimal icon={<AddShoppingCart data-testid="icon" />}>
+        Buy
+      </Button>
+    )
+  })
+
   it('should render a button as a link', () => {
     renderWithTheme(
       <Button as="a" href="https://www.google.com">
