@@ -36,8 +36,11 @@ const Home = ({
   freeHighligth
 }: HomeProps) => (
   <section>
-    <Container>
+    <Container larger>
       <Menu />
+    </Container>
+
+    <Container>
       <S.SectionBanner>
         <BannerSlider items={banners} />
       </S.SectionBanner>

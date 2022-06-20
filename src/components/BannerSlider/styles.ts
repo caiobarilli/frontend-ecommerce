@@ -31,21 +31,32 @@ export const Wrapper = styled.main`
         cursor: pointer;
       }
     }
+
     ${media.greaterThan('large')`
+
       ${BannerStyles.Wrapper} {
-        max-width: 104rem;
-        margin: 0 auto;
+        max-width: calc(100% - 1.6rem);
+        margin-right: auto;
       }
+
       .slick-dots {
         position: absolute;
         right: 0;
         flex-direction: column;
         height: 100%;
         top: 0;
+        right: -0.5rem;
         margin: 0;
         li {
           margin: ${theme.spacings.xxsmall} 0;
         }
+      }
+    `}
+
+    ${media.greaterThan('huge')`
+      margin-right: -3rem;
+      .slick-dots {
+        right: -2rem;
       }
     `}
   `}
