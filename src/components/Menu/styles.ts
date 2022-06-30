@@ -118,7 +118,7 @@ export const MenuFull = styled.nav<MenuFullProps>`
     z-index: ${theme.layers.menu};
     overflow: hidden;
     background: ${theme.colors.white};
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity ${theme.transition.default};
     opacity: ${isOpen ? 1 : 0};
     pointer-events: ${isOpen ? 'all' : 'none'};
     display: flex;
@@ -147,12 +147,12 @@ export const MenuFull = styled.nav<MenuFullProps>`
       font-size: ${theme.font.sizes.xlarge};
       margin-bottom: ${theme.spacings.small};
       cursor: pointer;
-      transition: transform 0.3s ease-in-out;
+      transition: transform ${theme.transition.default};
       transform: ${isOpen ? 'translateY(0)' : 'translateY(3rem)'};
     }
 
     ${RegisterBox} {
-      transition: transform 0.3s ease-in-out;
+      transition: transform ${theme.transition.default};
       transform: ${isOpen ? 'translateY(0)' : 'translateY(3rem)'};
     }
 
