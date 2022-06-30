@@ -3,23 +3,20 @@ import Radio from '.'
 
 export default {
   title: 'Radio',
-  component: Radio
+  component: Radio,
+  args: {
+    color: 'white'
+  }
 } as Meta
 
-export const Default: Story = () => {
+export const Default: Story = (args) => {
   return (
     <>
       <div style={{ marginBottom: 10 }}>
-        <Radio
-          id="radioOne"
-          label="Yes"
-          value="yes"
-          name="yesOrNo"
-          color="white"
-        />
+        <Radio id="radioOne" label="Yes" value="yes" name="yesOrNo" {...args} />
       </div>
 
-      <Radio id="radioTwo" label="No" value="no" name="yesOrNo" color="white" />
+      <Radio id="radioTwo" label="No" value="no" name="yesOrNo" {...args} />
     </>
   )
 }
