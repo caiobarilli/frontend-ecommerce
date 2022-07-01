@@ -1,6 +1,6 @@
 import styled, { css, DefaultTheme } from 'styled-components'
 
-import { InputTextProps } from '.'
+import { InputProps } from '.'
 
 const wrapperModifiers = {
   disabled: (theme: DefaultTheme) => css`
@@ -27,7 +27,7 @@ const wrapperModifiers = {
   `
 }
 
-type WrapperProps = Pick<InputTextProps, 'disabled' | 'hasError'>
+type WrapperProps = Pick<InputProps, 'disabled' | 'hasError'>
 
 export const Wrapper = styled.div<WrapperProps>`
   ${({ theme, disabled, hasError }) => css`
@@ -49,7 +49,7 @@ export const InputWrapper = styled.div`
   `}
 `
 
-type IconPositionProp = Pick<InputTextProps, 'iconPosition'>
+type IconPositionProp = Pick<InputProps, 'iconPosition'>
 
 export const Input = styled.input<IconPositionProp>`
   ${({ theme, iconPosition }) => css`

@@ -3,30 +3,30 @@ import userEvent from '@testing-library/user-event'
 import { renderWithTheme } from 'utils/tests/helpers'
 import { Email } from '@styled-icons/material-outlined'
 
-import InputText from '.'
+import Input from '.'
 
-describe('<InputText />', () => {
+describe('<Input />', () => {
   it('should render a input text with a label', () => {
-    renderWithTheme(<InputText id="name" name="name" label="Name" />)
+    renderWithTheme(<Input id="name" name="name" label="Name" />)
 
     expect(screen.getByText(/Name/i)).toBeInTheDocument()
   })
 
   it('should render a input text with a placeholder', () => {
-    renderWithTheme(<InputText placeholder="Type your name" />)
+    renderWithTheme(<Input placeholder="Type your name" />)
 
     expect(screen.getByPlaceholderText(/Type your name/i)).toBeInTheDocument()
   })
 
   it('should render a input text with Icon in the left position by default', () => {
-    renderWithTheme(<InputText icon={<Email data-testid="icon" />} />)
+    renderWithTheme(<Input icon={<Email data-testid="icon" />} />)
 
     expect(screen.getByTestId('icon')).toBeInTheDocument()
   })
 
   it('should render a input text with icon in the right position', () => {
     renderWithTheme(
-      <InputText
+      <Input
         id="emailInput"
         icon={<Email data-testid="icon" />}
         iconPosition="right"
@@ -41,7 +41,7 @@ describe('<InputText />', () => {
   it('should get a new value on input change', async () => {
     const onInput = jest.fn()
     renderWithTheme(
-      <InputText id="name" name="name" label="Name" onInput={onInput} />
+      <Input id="name" name="name" label="Name" onInput={onInput} />
     )
 
     const input = screen.getByRole('textbox')
@@ -59,13 +59,7 @@ describe('<InputText />', () => {
   it('should not get a new value on input change if is disabled', async () => {
     const onInput = jest.fn()
     renderWithTheme(
-      <InputText
-        id="name"
-        name="name"
-        label="Name"
-        onInput={onInput}
-        disabled
-      />
+      <Input id="name" name="name" label="Name" onInput={onInput} disabled />
     )
 
     const input = screen.getByRole('textbox')
@@ -80,7 +74,7 @@ describe('<InputText />', () => {
   })
 
   it('should render a input text with a error', () => {
-    renderWithTheme(<InputText error="This is a error" hasError={true} />)
+    renderWithTheme(<Input error="This is a error" hasError={true} />)
 
     expect(screen.getByText(/This is a error/i)).toBeInTheDocument()
   })

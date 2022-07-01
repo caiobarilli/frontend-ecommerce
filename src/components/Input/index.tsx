@@ -1,7 +1,7 @@
 import { InputHTMLAttributes, useState, ChangeEvent } from 'react'
 import * as S from './styles'
 
-export type InputTextProps = {
+export type InputProps = {
   id?: string
   label?: string
   icon?: React.ReactNode
@@ -12,7 +12,7 @@ export type InputTextProps = {
   onInput?: (value: string) => void
 } & InputHTMLAttributes<HTMLInputElement>
 
-const InputText = ({
+const Input = ({
   id,
   label,
   icon,
@@ -22,7 +22,7 @@ const InputText = ({
   hasError = false,
   error,
   ...props
-}: InputTextProps) => {
+}: InputProps) => {
   const [inputValue, setInputValue] = useState('')
 
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -42,12 +42,11 @@ const InputText = ({
         )}
         <S.Input
           id={id}
-          type="text"
           value={inputValue}
           onChange={onChangeHandler}
           iconPosition={iconPosition}
-          {...props}
           disabled={disabled}
+          {...props}
         />
       </S.InputWrapper>
       {hasError && <S.Error>{error}</S.Error>}
@@ -55,4 +54,4 @@ const InputText = ({
   )
 }
 
-export default InputText
+export default Input

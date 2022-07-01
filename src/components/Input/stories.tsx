@@ -1,11 +1,11 @@
 import { Story, Meta } from '@storybook/react'
 import { Email } from '@styled-icons/material-outlined'
 
-import InputText, { InputTextProps } from '.'
+import Input, { InputProps } from '.'
 
 export default {
-  title: 'Form/InputText',
-  component: InputText,
+  title: 'Form/Input',
+  component: Input,
   argTypes: {
     onInput: { action: 'changed' },
     icon: {
@@ -16,13 +16,13 @@ export default {
   }
 } as Meta
 
-export const Default: Story<InputTextProps> = (args) => <InputText {...args} />
+export const Default: Story<InputProps> = (args) => <Input {...args} />
 Default.args = {
   id: 'name',
   label: 'Name'
 }
 
-export const withIcon: Story<InputTextProps> = (args) => <InputText {...args} />
+export const withIcon: Story<InputProps> = (args) => <Input {...args} />
 withIcon.args = {
   id: 'email',
   label: 'Email',
@@ -30,9 +30,7 @@ withIcon.args = {
   icon: <Email />
 }
 
-export const withErrors: Story<InputTextProps> = (args) => (
-  <InputText {...args} />
-)
+export const withErrors: Story<InputProps> = (args) => <Input {...args} />
 withErrors.args = {
   id: 'email',
   label: 'Email',
