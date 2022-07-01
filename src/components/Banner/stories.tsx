@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import Banner, { BannerProps } from '.'
 
 export default {
-  title: 'Page/Banner',
+  title: 'COMPOUND COMPONENTS/Banner',
   component: Banner,
   args: {
     imageUrl: 'https://api.lorem.space/image/game?w=1042&h=583',

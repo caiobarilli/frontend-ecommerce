@@ -2,7 +2,7 @@ import { Story, Meta } from '@storybook/react'
 import Menu, { MenuProps } from '.'
 
 export default {
-  title: 'Page/Menu',
+  title: 'COMPOUND COMPONENTS/Menu',
   component: Menu,
   argTypes: {
     children: {

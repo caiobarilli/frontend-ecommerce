@@ -4,7 +4,7 @@ import { Heart as HeartIcon } from '@styled-icons/boxicons-regular/Heart'
 import Button from '.'
 
 export default {
-  title: 'UI/Button',
+  title: 'FORM/Button',
   component: Button,
   argTypes: {
     children: {
