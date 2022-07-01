@@ -2,7 +2,7 @@ import { Story, Meta } from '@storybook/react'
 import Radio from '.'
 
 export default {
-  title: 'Radio',
+  title: 'Form/Radio',
   component: Radio,
   args: {
     color: 'white'

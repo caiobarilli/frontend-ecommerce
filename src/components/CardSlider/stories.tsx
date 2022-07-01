@@ -47,7 +47,7 @@ const items = [
 ]
 
 export default {
-  title: 'CardSlider',
+  title: 'Slider/CardSlider',
   component: CardSlider,
   args: { items, color: 'white' },
   parameters: {

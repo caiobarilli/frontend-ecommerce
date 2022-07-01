@@ -2,7 +2,7 @@ import { Story, Meta } from '@storybook/react'
 import Highlight, { HighlightProps } from '.'
 
 export default {
-  title: 'Highlight',
+  title: 'Page/Highlight',
   component: Highlight,
   args: {
     title: 'Read Dead it’s back',

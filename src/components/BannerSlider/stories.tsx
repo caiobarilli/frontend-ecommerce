@@ -27,7 +27,7 @@ const items = [
 ]
 
 export default {
-  title: 'BannerSlider',
+  title: 'Slider/BannerSlider',
   component: BannerSlider,
   args: { items },
   parameters: {

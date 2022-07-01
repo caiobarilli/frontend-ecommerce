@@ -2,7 +2,7 @@ import { Story, Meta } from '@storybook/react'
 import Card, { CardProps } from '.'
 
 export default {
-  title: 'Card',
+  title: 'Page/Card',
   component: Card,
   args: {
     title: 'Red Dead Redemption 2',
