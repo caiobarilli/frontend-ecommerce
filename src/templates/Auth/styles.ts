@@ -83,7 +83,7 @@ export const MainContent = styled.section`
 `
 
 export const FormContainer = styled.div`
-  max-width: 35rem;
+  width: 35rem;
 `
 
 export const Footer = styled.p`
