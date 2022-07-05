@@ -35,8 +35,6 @@ describe('<Home />', () => {
   it('should render the sections', () => {
     renderWithTheme(<Home {...props} />)
 
-    expect(screen.getByRole('heading', { name: /news/i })).toBeInTheDocument()
-
     expect(
       screen.getByRole('heading', { name: /most popular/i })
     ).toBeInTheDocument()

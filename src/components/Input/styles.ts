@@ -31,8 +31,9 @@ type WrapperProps = Pick<InputProps, 'disabled' | 'hasError'>
 
 export const Wrapper = styled.div<WrapperProps>`
   ${({ theme, disabled, hasError }) => css`
-    ${disabled && wrapperModifiers.disabled(theme)}
-    ${hasError && wrapperModifiers.hasError(theme)}
+    margin-bottom: ${theme.spacings.xxsmall}
+      ${disabled && wrapperModifiers.disabled(theme)}
+      ${hasError && wrapperModifiers.hasError(theme)};
   `}
 `
 
@@ -61,6 +62,7 @@ export const Input = styled.input<IconPositionProp>`
     border: 0;
     outline: none;
     width: 100%;
+    height: 4.2rem;
   `}
 `
 

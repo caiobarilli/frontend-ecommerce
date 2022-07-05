@@ -11,6 +11,7 @@ import CardSlider from 'components/CardSlider'
 import Highlight, { HighlightProps } from 'components/Highlight'
 
 import * as S from './styles'
+import MediaMatch from 'components/MediaMatch'
 
 export type HomeProps = {
   banners: BannerProps[]
@@ -48,9 +49,16 @@ const Home = ({
 
     <S.SectionNews>
       <Container>
-        <Heading lineLeft lineColor="secondary" color="black">
-          News
-        </Heading>
+        <MediaMatch greaterThan="large">
+          <Heading lineLeft lineColor="secondary" color="black">
+            News
+          </Heading>
+        </MediaMatch>
+        <MediaMatch lessThan="large">
+          <Heading lineLeft lineColor="secondary">
+            News
+          </Heading>
+        </MediaMatch>
         <CardSlider items={newGames} color="black" />
       </Container>
     </S.SectionNews>
@@ -79,7 +87,7 @@ const Home = ({
           alignment="left"
           imageUrl="img/red-dead-float.png"
         />
-        <CardSlider items={upcommingMoreGames} />
+        <CardSlider items={upcommingMoreGames} color="white" />
       </Container>
     </S.SectionUpcoming>
 
@@ -89,7 +97,7 @@ const Home = ({
           Free Games
         </Heading>
         <Highlight {...freeHighligth} />
-        <CardSlider items={freeGames} />
+        <CardSlider items={freeGames} color="white" />
       </Container>
     </S.SectionFreeGames>
 

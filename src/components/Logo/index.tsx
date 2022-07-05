@@ -1,12 +1,14 @@
 import * as S from './styles'
 
 export type LogoProps = {
+  id?: string
   color?: 'white' | 'black'
   size?: 'small' | 'medium'
   hideOnMobile?: boolean
 }
 
 const Logo = ({
+  id = 'logo',
   color = 'white',
   size = 'medium',
   hideOnMobile = false
@@ -20,7 +22,7 @@ const Logo = ({
       aria-label="Won Games"
     >
       <path
-        fill="url(#paint0_linear)"
+        fill={'url(#' + id + ')'}
         d="M.05 15.23L.02 35.87a6 6 0 009.33 5l20.6-13.72 20.54 13.8a6 6 0 009.34-4.97l.04-20A11.81 11.81 0 0044.75 4.62l-.87.25a50.87 50.87 0 01-29.36-.27A11.15 11.15 0 00.05 15.23z"
       />
       <path
@@ -29,7 +31,7 @@ const Logo = ({
         d="M30.16 27.16l-6.03-4.3a.5.5 0 00-.78.5l1.3 7.3 5.51-3.5z"
       />
       <path
-        stroke="#fff"
+        stroke="#ffffff"
         strokeLinecap="round"
         strokeOpacity=".4"
         strokeWidth="1.5"
@@ -72,7 +74,7 @@ const Logo = ({
       />
       <defs>
         <linearGradient
-          id="paint0_linear"
+          id={id}
           x1="29.16"
           x2="30.15"
           y1="-7.4"

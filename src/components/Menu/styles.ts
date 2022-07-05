@@ -13,10 +13,10 @@ export const Wrapper = styled.menu`
 
 export const LogoWrapper = styled.div`
   ${media.lessThan('medium')`
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    `}
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  `}
 `
 
 export const IconWrapper = styled.div`

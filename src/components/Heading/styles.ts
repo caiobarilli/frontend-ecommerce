@@ -18,6 +18,14 @@ const WrapperModifier = {
     `}
   `,
 
+  large: (theme: DefaultTheme) => css`
+    font-size: ${theme.font.sizes.xxlarge};
+    ${media.greaterThan('medium')`
+      font-size: ${theme.font.sizes.xxxlarge};
+      line-height: ${theme.font.sizes.xxxlarge};
+    `}
+  `,
+
   lineLeft: (theme: DefaultTheme, lineColor: LineColors) => css`
     padding-left: ${theme.spacings.xxsmall};
     border-left: 0.7rem solid ${theme.colors[lineColor]};
