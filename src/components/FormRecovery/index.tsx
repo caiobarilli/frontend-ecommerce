@@ -12,7 +12,10 @@ const FormRecovery = () => (
     <Input id="email" placeholder="Email" icon={<Email />} type="email" />
     <Button> Reset password </Button>
     <>
-      Don’t have an account? <Link href="/sign-up">Sign up</Link>
+      Don’t have an account?{' '}
+      <Link href="/sign-up">
+        <a>Sign up</a>
+      </Link>
     </>
   </Form>
 )

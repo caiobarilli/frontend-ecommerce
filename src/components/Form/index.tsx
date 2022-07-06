@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components'
 
-export const FormWrapper = styled.div`
+export const FormWrapper = styled.form`
   ${({ theme }) => css`
-    a[href*='/recovery'] {
+    a {
       color: ${theme.colors.black};
       font-size: ${theme.font.sizes.small};
       display: table;

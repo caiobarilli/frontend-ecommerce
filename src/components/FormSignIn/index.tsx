@@ -21,10 +21,15 @@ const FormSignIn = () => (
       type="password"
       autoComplete="current-password"
     />
-    <Link href="/recovery">Forgot your password?</Link>
+    <Link href="/recovery">
+      <a>Forgot your password?</a>
+    </Link>
     <Button> Sign in now </Button>
     <>
-      Don’t have an account? <Link href="/sign-up">Sign up</Link>
+      Don’t have an account?{' '}
+      <Link href="/sign-up">
+        <a>Sign up</a>
+      </Link>
     </>
   </Form>
 )
