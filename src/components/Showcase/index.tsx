@@ -6,35 +6,44 @@ import { Container } from 'components/Container'
 
 import styled from 'styled-components'
 
-export const HighlightWrapper = styled.section`
+export const HighlightWrapper = styled.div`
   margin: 2rem 0;
 `
 
 export type ShowcaseProps = {
+  children?: React.ReactNode
+  alignment?: 'left' | 'right'
   arrowColors: 'white' | 'black'
   titleColor: 'white' | 'black'
   lineColor: 'primary' | 'secondary'
-  title: string
-  freeGames: CardProps[]
-  freeHighligth: HighlightProps
+  title?: string
+  lineLeft?: boolean
+  Games: CardProps[]
+  Highligth: HighlightProps
 }
 
 const Showcase = ({
   title,
+  children,
+  alignment,
   arrowColors,
   titleColor,
   lineColor,
-  freeGames,
-  freeHighligth
+  lineLeft,
+  Games,
+  Highligth
 }: ShowcaseProps) => (
   <Container>
-    <Heading lineLeft lineColor={lineColor} color={titleColor}>
-      {title}
-    </Heading>
+    {children}
+    {!!title && (
+      <Heading lineLeft={lineLeft} lineColor={lineColor} color={titleColor}>
+        {title}
+      </Heading>
+    )}
     <HighlightWrapper>
-      <Highlight {...freeHighligth} />
+      <Highlight {...Highligth} alignment={alignment} />
     </HighlightWrapper>
-    <CardSlider items={freeGames} color={arrowColors} />
+    <CardSlider items={Games} color={arrowColors} />
   </Container>
 )
 

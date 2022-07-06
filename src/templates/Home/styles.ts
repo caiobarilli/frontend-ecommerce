@@ -64,7 +64,7 @@ export const SectionMostPopular = styled(Sections)``
 export const SectionUpcoming = styled(Sections)`
   ${({ theme }) => css`
     ${HighlightStyles.Wrapper} {
-      margin-top: calc(${theme.spacings.xlarge} * 2);
+      margin: ${theme.spacings.xlarge} 0;
     }
   `}
 `

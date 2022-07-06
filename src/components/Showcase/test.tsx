@@ -12,8 +12,8 @@ describe('<Showcase />', () => {
     renderWithTheme(
       <Showcase
         title="Free Games"
-        freeGames={Cards}
-        freeHighligth={Highlight}
+        Games={Cards}
+        Highligth={Highlight}
         arrowColors="white"
         titleColor="white"
         lineColor="primary"
