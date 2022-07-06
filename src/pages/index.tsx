@@ -8,6 +8,8 @@ export default function Index(props: HomeProps) {
   return <Home {...props} />
 }
 
+const HighlightInverted = { ...Highlight, alignment: 'left' }
+
 export function getServerSideProps() {
   return {
     props: {
@@ -16,7 +18,7 @@ export function getServerSideProps() {
       mostPopularHighlight: Highlight,
       mostPopularGames: Cards,
       upcommingGames: Cards,
-      upcommingHighligth: Highlight,
+      upcommingHighligth: HighlightInverted,
       upcommingMoreGames: Cards,
       freeGames: Cards,
       freeHighligth: Highlight

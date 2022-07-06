@@ -73,7 +73,7 @@ const Home = ({
         Highligth={mostPopularHighlight}
         arrowColors="white"
         titleColor="white"
-        lineColor="secondary"
+        lineColor="primary"
       />
     </S.SectionMostPopular>
 
@@ -84,9 +84,8 @@ const Home = ({
         Highligth={upcommingHighligth}
         arrowColors="white"
         titleColor="white"
-        lineColor="primary"
       >
-        <Heading lineLeft lineColor="secondary">
+        <Heading lineLeft lineColor="primary">
           Upcomming
         </Heading>
         <CardSlider items={upcommingGames} color="white" />

@@ -12,10 +12,9 @@ export const HighlightWrapper = styled.div`
 
 export type ShowcaseProps = {
   children?: React.ReactNode
-  alignment?: 'left' | 'right'
   arrowColors: 'white' | 'black'
   titleColor: 'white' | 'black'
-  lineColor: 'primary' | 'secondary'
+  lineColor?: 'primary' | 'secondary'
   title?: string
   lineLeft?: boolean
   Games: CardProps[]
@@ -25,7 +24,6 @@ export type ShowcaseProps = {
 const Showcase = ({
   title,
   children,
-  alignment,
   arrowColors,
   titleColor,
   lineColor,
@@ -41,7 +39,7 @@ const Showcase = ({
       </Heading>
     )}
     <HighlightWrapper>
-      <Highlight {...Highligth} alignment={alignment} />
+      <Highlight {...Highligth} />
     </HighlightWrapper>
     <CardSlider items={Games} color={arrowColors} />
   </Container>
