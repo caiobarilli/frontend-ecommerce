@@ -14,10 +14,19 @@ export default {
     genres: ['Role-playing']
   },
   argTypes: {
+    releaseDate: {
+      control: 'date'
+    },
     platforms: {
       control: {
         type: 'inline-check',
         options: ['windows', 'linux', 'mac']
+      }
+    },
+    genres: {
+      control: {
+        type: 'inline-check',
+        options: ['Role-playing', 'Action', 'Adventure', 'RPG']
       }
     }
   }
