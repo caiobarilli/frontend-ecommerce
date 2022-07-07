@@ -1,10 +1,4 @@
-import Menu from 'components/Menu'
 import Heading from 'components/Heading'
-import Footer from 'components/Footer'
-
-import MediaMatch from 'components/MediaMatch'
-import { Container } from 'components/Container'
-
 import BannerSlider from 'components/BannerSlider'
 import CardSlider from 'components/CardSlider'
 import Showcase from 'components/Showcase'
@@ -12,6 +6,11 @@ import Showcase from 'components/Showcase'
 import { CardProps } from 'components/Card'
 import { BannerProps } from 'components/Banner'
 import { HighlightProps } from 'components/Highlight'
+
+import MediaMatch from 'components/MediaMatch'
+import { Container } from 'components/Container'
+
+import Base from 'templates/Base'
 
 import * as S from './styles'
 
@@ -38,11 +37,7 @@ const Home = ({
   freeGames,
   freeHighligth
 }: HomeProps) => (
-  <section>
-    <Container larger>
-      <Menu />
-    </Container>
-
+  <Base>
     <Container>
       <S.SectionBanner>
         <BannerSlider items={banners} />
@@ -103,13 +98,7 @@ const Home = ({
         lineColor="primary"
       />
     </S.SectionFreeGames>
-
-    <S.SectionFooter>
-      <Container>
-        <Footer />
-      </Container>
-    </S.SectionFooter>
-  </section>
+  </Base>
 )
 
 export default Home
