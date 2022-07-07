@@ -11,10 +11,8 @@ const wrapperModifiers = {
       border-left-color: ${darken(0.2, theme.colors[backgroundColor])};
       border-top-color: ${darken(0.2, theme.colors[backgroundColor])};
     }
-  `
-}
+  `,
 
-const wrapperSizeModifiers = {
   normal: (theme: DefaultTheme) => css`
     font-size: ${theme.font.sizes.small};
     padding: 0 ${theme.spacings.small};
@@ -26,6 +24,7 @@ const wrapperSizeModifiers = {
       border-right-width: 2rem;
     }
   `,
+
   small: (theme: DefaultTheme) => css`
     font-size: ${theme.font.sizes.xsmall};
     padding: 0 ${theme.spacings.xsmall};
@@ -59,7 +58,7 @@ export const Wrapper = styled.div<Omit<RibbonProps, 'children'>>`
       border-bottom-width: 1rem;
     }
 
-    ${!!size && wrapperSizeModifiers[size](theme)}
+    ${!!size && wrapperModifiers[size](theme)}
     ${!!backgroundColor &&
     wrapperModifiers.backgroundColor(theme, backgroundColor)};
   `};
