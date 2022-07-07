@@ -2,7 +2,7 @@ import { Story, Meta } from '@storybook/react'
 import GameInfo, { GameInfoProps } from '.'
 
 export default {
-  title: 'COMPOUND COMPONENTS/GameInfo',
+  title: 'COMPOUND COMPONENTS/Game Info',
   component: GameInfo,
   args: {
     title: 'The Last of Us Part II',
