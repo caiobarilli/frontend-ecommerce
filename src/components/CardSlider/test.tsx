@@ -1,5 +1,5 @@
 import { renderWithTheme } from 'utils/tests/helpers'
-import 'math-media-mock'
+import 'match-media-mock'
 import items from './mock'
 
 import CardSlider from '.'

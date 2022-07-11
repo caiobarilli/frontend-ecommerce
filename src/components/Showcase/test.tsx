@@ -3,7 +3,7 @@ import { renderWithTheme } from 'utils/tests/helpers'
 import Cards from 'components/CardSlider/mock'
 import Highlight from 'components/Highlight/mock'
 
-import 'math-media-mock'
+import 'match-media-mock'
 
 import Showcase from '.'
 
