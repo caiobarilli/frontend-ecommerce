@@ -8,16 +8,9 @@ import 'match-media-mock'
 import Showcase from '.'
 
 describe('<Showcase />', () => {
-  it('should render the heading', () => {
+  it('should render all props', () => {
     renderWithTheme(
-      <Showcase
-        title="Free Games"
-        Games={Cards}
-        Highligth={Highlight}
-        arrowColors="white"
-        titleColor="white"
-        lineColor="primary"
-      />
+      <Showcase title="Free Games" Games={Cards} Highligth={Highlight} />
     )
 
     expect(screen.getByText('Free Games')).toBeInTheDocument()

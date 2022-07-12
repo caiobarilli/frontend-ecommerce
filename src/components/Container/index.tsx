@@ -6,6 +6,7 @@ type ContainerProps = {
 
 export const Container = styled.main<ContainerProps>`
   ${({ theme, larger }) => css`
+    width: 100%;
     ${larger
       ? css`
           max-width: ${theme.grid.containerLarge};
@@ -16,7 +17,5 @@ export const Container = styled.main<ContainerProps>`
 
     margin-left: auto;
     margin-right: auto;
-    padding-left: calc(${theme.grid.gutter} / 2);
-    padding-right: calc(${theme.grid.gutter} / 2);
   `}
 `

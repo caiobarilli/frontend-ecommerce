@@ -6,14 +6,20 @@ import * as S from './styles'
 
 const Footer = () => (
   <S.Wrapper>
-    <Logo color="black" />
+    <Link href="/">
+      <a>
+        <Logo color="black" />
+      </a>
+    </Link>
     <S.Content>
       <S.Column>
         <Heading color="black" size="small" lineBottom lineColor="secondary">
           Contact
         </Heading>
 
-        <a href="mailto:sac@wongames.com">sac@wongames.com</a>
+        <Link href="mailto:sac@wongames.com">
+          <a>sac@wongames.com</a>
+        </Link>
       </S.Column>
 
       <S.Column>
