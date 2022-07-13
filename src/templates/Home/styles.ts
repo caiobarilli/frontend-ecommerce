@@ -25,13 +25,12 @@ const Sections = styled.section`
         margin-right: calc(-${theme.grid.gutter} / 2);
       `}
     }
-    margin-bottom: calc(${theme.spacings.large} * 2);
   `}
 `
 
 export const SectionBanner = styled.section`
   ${({ theme }) => css`
-    margin: ${theme.spacings.large} calc(-${theme.grid.gutter} / 2);
+    margin: 0 calc(-${theme.grid.gutter} / 2) ${theme.spacings.large};
     ${media.greaterThan('medium')`
       margin: ${theme.spacings.large} 0;
       position: relative;
@@ -70,17 +69,3 @@ export const SectionUpcoming = styled(Sections)`
 `
 
 export const SectionFreeGames = styled(Sections)``
-
-export const SectionFooter = styled.section`
-  ${({ theme }) => css`
-    margin-top: ${theme.spacings.large};
-    padding-bottom: ${theme.spacings.xsmall};
-    padding-top: ${theme.spacings.xxlarge};
-    background-color: ${theme.colors.white};
-    clip-path: polygon(0 5%, 100% 0%, 100% 100%, 0 100%);
-    ${media.greaterThan('medium')`
-      padding-top: calc(${theme.spacings.xxlarge} * 2);
-      clip-path: polygon(0 15%, 100% 0%, 100% 100%, 0 100%);
-    `}
-  `}
-`

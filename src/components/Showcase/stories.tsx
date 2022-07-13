@@ -16,7 +16,7 @@ export default {
 } as Meta
 
 export const Default: Story<ShowcaseProps> = (args) => (
-  <Showcase {...args} Games={Cards} Highligth={Highlight} />
+  <Showcase {...args} Games={Cards} highlight={Highlight} />
 )
 
 Default.parameters = {

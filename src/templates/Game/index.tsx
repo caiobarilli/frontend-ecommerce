@@ -52,7 +52,7 @@ const Game = ({
       <Showcase
         title="Upcomming"
         Games={upcommingGames}
-        Highligth={upcommingHighlight}
+        highlight={upcommingHighlight}
       />
 
       <Showcase title="You may like these games" Games={recommendedGames} />

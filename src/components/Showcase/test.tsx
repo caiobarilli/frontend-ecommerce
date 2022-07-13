@@ -10,7 +10,7 @@ import Showcase from '.'
 describe('<Showcase />', () => {
   it('should render all props', () => {
     renderWithTheme(
-      <Showcase title="Free Games" Games={Cards} Highligth={Highlight} />
+      <Showcase title="Free Games" Games={Cards} highlight={Highlight} />
     )
 
     expect(screen.getByText('Free Games')).toBeInTheDocument()

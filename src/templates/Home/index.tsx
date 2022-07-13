@@ -20,10 +20,10 @@ export type HomeProps = {
   mostPopularHighlight: HighlightProps
   mostPopularGames: CardProps[]
   upcommingGames: CardProps[]
-  upcommingHighligth: HighlightProps
+  upcomminghighlight: HighlightProps
   upcommingMoreGames: CardProps[]
   freeGames: CardProps[]
-  freeHighligth: HighlightProps
+  freehighlight: HighlightProps
 }
 
 const Home = ({
@@ -32,10 +32,10 @@ const Home = ({
   mostPopularHighlight,
   mostPopularGames,
   upcommingGames,
-  upcommingHighligth,
+  upcomminghighlight,
   upcommingMoreGames,
   freeGames,
-  freeHighligth
+  freehighlight
 }: HomeProps) => (
   <Base>
     <Container>
@@ -62,25 +62,15 @@ const Home = ({
 
     <S.SectionMostPopular>
       <Showcase
-        lineLeft
         title="Most Popular"
         Games={mostPopularGames}
-        Highligth={mostPopularHighlight}
-        arrowColors="white"
-        titleColor="white"
-        lineColor="primary"
+        highlight={mostPopularHighlight}
       />
     </S.SectionMostPopular>
 
     <S.SectionUpcoming>
-      <Showcase
-        lineLeft
-        Games={upcommingMoreGames}
-        Highligth={upcommingHighligth}
-        arrowColors="white"
-        titleColor="white"
-      >
-        <Heading lineLeft lineColor="primary">
+      <Showcase Games={upcommingMoreGames} highlight={upcomminghighlight}>
+        <Heading lineLeft lineColor="secondary">
           Upcomming
         </Heading>
         <CardSlider items={upcommingGames} color="white" />
@@ -89,13 +79,9 @@ const Home = ({
 
     <S.SectionFreeGames>
       <Showcase
-        lineLeft
         title="Free Games"
         Games={freeGames}
-        Highligth={freeHighligth}
-        arrowColors="white"
-        titleColor="white"
-        lineColor="primary"
+        highlight={freehighlight}
       />
     </S.SectionFreeGames>
   </Base>

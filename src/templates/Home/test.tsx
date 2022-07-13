@@ -15,10 +15,10 @@ const props = {
   mostPopularHighlight: highlightMock,
   mostPopularGames: gamesMock,
   upcommingGames: gamesMock,
-  upcommingHighligth: highlightMock,
+  upcomminghighlight: highlightMock,
   upcommingMoreGames: gamesMock,
   freeGames: gamesMock,
-  freeHighligth: highlightMock
+  freehighlight: highlightMock
 }
 
 jest.mock('components/Menu', () => {

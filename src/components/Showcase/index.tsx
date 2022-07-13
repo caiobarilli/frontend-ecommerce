@@ -17,7 +17,7 @@ export type ShowcaseProps = {
   title?: string
   lineLeft?: boolean
   Games: CardProps[]
-  Highligth?: HighlightProps
+  highlight?: HighlightProps
 }
 
 const Showcase = ({
@@ -28,7 +28,7 @@ const Showcase = ({
   lineColor = 'secondary',
   lineLeft = true,
   Games,
-  Highligth
+  highlight
 }: ShowcaseProps) => (
   <Container>
     {children}
@@ -37,9 +37,9 @@ const Showcase = ({
         {title}
       </Heading>
     )}
-    {!!Highligth && (
+    {!!highlight && (
       <HighlightWrapper>
-        <Highlight {...Highligth} />
+        <Highlight {...highlight} />
       </HighlightWrapper>
     )}
     <CardSlider items={Games} color={arrowColors} />

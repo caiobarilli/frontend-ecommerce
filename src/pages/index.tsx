@@ -18,10 +18,10 @@ export function getServerSideProps() {
       mostPopularHighlight: Highlight,
       mostPopularGames: Cards,
       upcommingGames: Cards,
-      upcommingHighligth: HighlightInverted,
+      upcomminghighlight: HighlightInverted,
       upcommingMoreGames: Cards,
       freeGames: Cards,
-      freeHighligth: Highlight
+      freehighlight: Highlight
     }
   }
 }
