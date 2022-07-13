@@ -7,7 +7,7 @@ import * as S from './styles'
 
 export type PaymentOptionsProps = {
   cards?: PaymentCard[]
-  handlePayment?: () => void
+  handlePayment: () => void
 }
 
 export type PaymentCard = {
