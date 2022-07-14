@@ -14,4 +14,15 @@ describe('<Container />', () => {
       theme.grid.container
     )
   })
+
+  it('should render the container with a larger width', () => {
+    const { container } = renderWithTheme(
+      <Container larger>Hello World</Container>
+    )
+
+    expect(container.firstChild).toHaveStyleRule(
+      'max-width',
+      theme.grid.containerLarge
+    )
+  })
 })

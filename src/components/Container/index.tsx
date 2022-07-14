@@ -4,7 +4,7 @@ type ContainerProps = {
   larger?: boolean
 }
 
-export const Container = styled.main<ContainerProps>`
+export const Container = styled.main<Pick<ContainerProps, 'larger'>>`
   ${({ theme, larger }) => css`
     width: 100%;
     ${larger
@@ -17,5 +17,7 @@ export const Container = styled.main<ContainerProps>`
 
     margin-left: auto;
     margin-right: auto;
+    padding-left: calc(${theme.grid.gutter} / 2);
+    padding-right: calc(${theme.grid.gutter} / 2);
   `}
 `
