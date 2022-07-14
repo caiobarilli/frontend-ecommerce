@@ -5,6 +5,10 @@ export const Nav = styled.nav`
   ${({ theme }) => css`
     display: flex;
     border-bottom: 0.1rem solid ${theme.colors.lightGray};
+
+    ${media.greaterThan('medium')`
+      flex-direction: column;
+    `}
   `}
 `
 
