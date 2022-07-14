@@ -4,6 +4,7 @@ import * as S from './styles'
 export type InputProps = {
   id?: string
   label?: string
+  initialValue?: string
   icon?: React.ReactNode
   iconPosition?: 'left' | 'right'
   disabled?: boolean
@@ -17,13 +18,14 @@ const Input = ({
   label,
   icon,
   onInput,
+  initialValue = '',
   iconPosition = 'left',
   disabled = false,
   hasError = false,
   error,
   ...props
 }: InputProps) => {
-  const [inputValue, setInputValue] = useState('')
+  const [inputValue, setInputValue] = useState(initialValue)
 
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.currentTarget.value

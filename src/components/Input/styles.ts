@@ -31,9 +31,9 @@ type WrapperProps = Pick<InputProps, 'disabled' | 'hasError'>
 
 export const Wrapper = styled.div<WrapperProps>`
   ${({ theme, disabled, hasError }) => css`
-    margin-bottom: ${theme.spacings.xxsmall}
-      ${disabled && wrapperModifiers.disabled(theme)}
-      ${hasError && wrapperModifiers.hasError(theme)};
+    margin-bottom: ${theme.spacings.xxsmall};
+    ${disabled && wrapperModifiers.disabled(theme)};
+    ${hasError && wrapperModifiers.hasError(theme)};
   `}
 `
 
