@@ -18,7 +18,8 @@ const Radio = ({
   id,
   value,
   color = 'white',
-  onCheck
+  onCheck,
+  ...props
 }: RadioProps) => {
   const onChangeHandler = () => {
     !!onCheck && onCheck(value)
@@ -32,6 +33,7 @@ const Radio = ({
         type="radio"
         value={value}
         onChange={onChangeHandler}
+        {...props}
       />
       <S.Label htmlFor={id} color={color}>
         {label}
