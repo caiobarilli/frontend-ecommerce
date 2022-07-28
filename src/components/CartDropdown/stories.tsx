@@ -4,11 +4,11 @@ import CartDropdown from '.'
 import items from 'components/CartList/mock'
 
 export default {
-  title: 'CartDropdown',
+  title: 'COMPOUND COMPONENTS/CartDropdown',
   component: CartDropdown,
   parameters: {
     backgrounds: {
-      default: 'won-dark'
+      default: 'dark'
     }
   }
 } as Meta
