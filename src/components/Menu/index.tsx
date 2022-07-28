@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { ShoppingCart as CartIcon } from '@styled-icons/material-outlined/ShoppingCart'
 import { SearchOutline as SearchIcon } from '@styled-icons/evaicons-outline/SearchOutline'
 import { Menu2 as MenuIcon } from '@styled-icons/remix-line/Menu2'
 import { Close as CloseIcon } from '@styled-icons/material-outlined/Close'
@@ -9,6 +8,8 @@ import * as S from './styles'
 import Button from 'components/Button'
 import MediaMatch from 'components/MediaMatch'
 import Link from 'next/link'
+import CartDropdown from 'components/CartDropdown'
+import CartIcon from 'components/CartIcon'
 
 export type MenuProps = {
   username?: string
@@ -45,7 +46,18 @@ const Menu = ({ username }: MenuProps) => {
           <SearchIcon aria-label="Open Shopping Cart" />
         </S.IconWrapper>
         <S.IconWrapper>
-          <CartIcon aria-label="Search" />
+          <MediaMatch greaterThan="medium">
+            <CartDropdown />
+          </MediaMatch>
+        </S.IconWrapper>
+        <S.IconWrapper>
+          <MediaMatch lessThan="medium">
+            <Link href="/cart">
+              <a>
+                <CartIcon />
+              </a>
+            </Link>
+          </MediaMatch>
         </S.IconWrapper>
         <MediaMatch greaterThan="medium">
           {!username && (

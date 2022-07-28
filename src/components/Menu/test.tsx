@@ -9,7 +9,6 @@ describe('<Menu />', () => {
 
     // Teste de Acessibilidade
     expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument()
-    expect(screen.getByLabelText(/Search/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/open shopping cart/i)).toBeInTheDocument()
     expect(screen.getByRole('img', { name: /Won Games/i })).toBeInTheDocument()
   })

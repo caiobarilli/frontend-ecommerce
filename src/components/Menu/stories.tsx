@@ -27,6 +27,24 @@ Default.parameters = {
     default: 'dark'
   }
 }
+export const Logged: Story<MenuProps> = (args) => (
+  <div
+    style={{
+      width: '104rem',
+      margin: '0 auto'
+    }}
+  >
+    <Menu {...args} />
+  </div>
+)
+Logged.parameters = {
+  backgrounds: {
+    default: 'dark'
+  }
+}
+Logged.args = {
+  username: 'John Doe'
+}
 
 export const Mobile: Story<MenuProps> = (args) => <Menu {...args} />
 

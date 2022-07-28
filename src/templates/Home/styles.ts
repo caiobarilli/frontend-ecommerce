@@ -34,7 +34,7 @@ export const SectionBanner = styled.section`
     ${media.greaterThan('medium')`
       margin: ${theme.spacings.large} 0;
       position: relative;
-      z-index: ${theme.layers.base};
+      z-index: 1;
     `}
   `}
 `
