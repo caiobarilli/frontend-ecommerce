@@ -10,6 +10,7 @@ import MediaMatch from 'components/MediaMatch'
 import Link from 'next/link'
 import CartDropdown from 'components/CartDropdown'
 import CartIcon from 'components/CartIcon'
+import UserDropdown from 'components/UserDropdown'
 
 export type MenuProps = {
   username?: string
@@ -49,8 +50,6 @@ const Menu = ({ username }: MenuProps) => {
           <MediaMatch greaterThan="medium">
             <CartDropdown />
           </MediaMatch>
-        </S.IconWrapper>
-        <S.IconWrapper>
           <MediaMatch lessThan="medium">
             <Link href="/cart">
               <a>
@@ -60,10 +59,12 @@ const Menu = ({ username }: MenuProps) => {
           </MediaMatch>
         </S.IconWrapper>
         <MediaMatch greaterThan="medium">
-          {!username && (
+          {!username ? (
             <Link href="/sign-in" passHref>
               <Button as="a">Sign in</Button>
             </Link>
+          ) : (
+            <UserDropdown username={username} />
           )}
         </MediaMatch>
       </S.MenuGroup>
