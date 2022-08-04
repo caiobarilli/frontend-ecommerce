@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   `}
 `
 
-export const ImageWrapper = styled.div`
+export const ImageWrapper = styled.a`
   height: 14rem;
   overflow: hidden;
   img {
@@ -25,15 +25,17 @@ export const Content = styled.div`
   `}
 `
 
-export const Infos = styled.div`
+export const Infos = styled.a`
   ${({ theme }) => css`
     grid-area: infos;
     padding-right: ${theme.spacings.xsmall};
+    text-decoration: none;
   `}
 `
 
 export const Title = styled.h3`
   ${({ theme }) => css`
+    color: ${theme.colors.black};
     font-size: ${theme.font.sizes.small};
     line-break: anywhere;
   `}

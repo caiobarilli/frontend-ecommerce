@@ -4,13 +4,10 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
     'src/**/*.ts(x)?',
-    'src/components/**/*.{js,jsx,ts,tsx}',
     '!**/src/types/**/*.d.ts/**',
     '!**/src/pages/**/*.tsx/**',
-    '!**/src/pages/*.tsx/**',
     '!**/src/styles/**/*.ts/**',
-    '!**/src/graphql/queries/games.ts **',
-    '!**/src/utils/*.ts/**',
+    '!**/src/graphql/**/*.ts/**',
     '!**/src/utils/**/*.ts/**',
     '!**/src/**/mock.ts/**',
     '!**/src/**/stories.tsx/**'

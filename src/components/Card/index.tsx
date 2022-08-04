@@ -4,8 +4,10 @@ import { Heart as HeartIcon } from '@styled-icons/boxicons-regular/Heart'
 import { Heart as HeartSolidIcon } from '@styled-icons/boxicons-solid/Heart'
 import Ribbon from 'components/Ribbon'
 import Button from 'components/Button'
+import Link from 'next/link'
 
 export type CardProps = {
+  slug: string
   title: string
   developer: string
   image: string
@@ -17,6 +19,7 @@ export type CardProps = {
 }
 
 const Card = ({
+  slug,
   title,
   developer,
   image,
@@ -27,15 +30,19 @@ const Card = ({
   favorite = false
 }: CardProps) => (
   <S.Wrapper>
-    <S.ImageWrapper>
-      <img src={image} alt={title} />
-    </S.ImageWrapper>
+    <Link href={`game/${slug}`} passHref>
+      <S.ImageWrapper>
+        <img src={image} alt={title} />
+      </S.ImageWrapper>
+    </Link>
 
     <S.Content>
-      <S.Infos>
-        <S.Title>{title}</S.Title>
-        <S.DeveloperTitle>{developer}</S.DeveloperTitle>
-      </S.Infos>
+      <Link href={`game/${slug}`} passHref>
+        <S.Infos>
+          <S.Title>{title}</S.Title>
+          <S.DeveloperTitle>{developer}</S.DeveloperTitle>
+        </S.Infos>
+      </Link>
 
       <S.FavButton onClick={onFavoriteHandler} role="button">
         {favorite ? (
