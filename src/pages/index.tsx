@@ -1,8 +1,10 @@
 import Home, { HomeProps } from 'templates/Home'
 
-import Banners from 'components/BannerSlider/mock'
 import Cards from 'components/CardSlider/mock'
 import Highlight from 'components/Highlight/mock'
+import { initializeApollo } from 'utils/apollo'
+import { QUERY_HOME } from 'graphql/queries/home'
+import { QueryHome } from 'graphql/generated/QueryHome'
 
 export default function Index(props: HomeProps) {
   return <Home {...props} />
@@ -10,17 +12,71 @@ export default function Index(props: HomeProps) {
 
 const HighlightInverted = { ...Highlight, alignment: 'left' }
 
-export function getServerSideProps() {
+export async function getStaticProps() {
+  const apolloClient = initializeApollo()
+
+  const { data } = await apolloClient.query<QueryHome>({
+    query: QUERY_HOME
+  })
+
   return {
     props: {
-      banners: Banners,
-      newGames: Cards,
+      revalidate: 60, // 1 minute (in seconds)
+      banners: data.banners.map((banner) => ({
+        imageUrl: banner.image?.url,
+        title: banner.title,
+        subtitle: banner.subtitle,
+        buttonText: banner.button?.label,
+        buttonLink: banner.button?.link,
+        ...(banner.ribbon && {
+          ribbon: banner.ribbon,
+          ribbonColor: banner.ribbon?.color,
+          ribbonSize: banner.ribbon?.size
+        })
+      })),
+      newGames: data.newGames.map((game) => ({
+        title: game.name,
+        developer: game.developers[0].name,
+        image: game.cover?.url,
+        price: new Intl.NumberFormat('en', {
+          style: 'currency',
+          currency: 'USD'
+        }).format(game.price),
+        slug: game.slug
+      })),
       mostPopularHighlight: Highlight,
       mostPopularGames: Cards,
-      upcommingGames: Cards,
+      upcommingGames: data.upcomingGames.map((game) => ({
+        title: game.name,
+        developer: game.developers[0].name,
+        image: game.cover?.url,
+        price: new Intl.NumberFormat('en', {
+          style: 'currency',
+          currency: 'USD'
+        }).format(game.price),
+        slug: game.slug
+      })),
       upcomminghighlight: HighlightInverted,
-      upcommingMoreGames: Cards,
-      freeGames: Cards,
+      upcommingMoreGames: data.upcomingGames.map((game) => ({
+        title: game.name,
+        developer: game.developers[0].name,
+        image: game.cover?.url,
+        price: new Intl.NumberFormat('en', {
+          style: 'currency',
+          currency: 'USD'
+        }).format(game.price),
+        slug: game.slug
+      })),
+      freeGames: data.freeGames.map((game) => ({
+        title: game.name,
+        developer: game.developers[0].name,
+        image: game.cover?.url,
+        price: new Intl.NumberFormat('en', {
+          style: 'currency',
+          currency: 'USD'
+        }).format(game.price),
+        slug: game.slug
+      })),
       freehighlight: Highlight
     }
   }

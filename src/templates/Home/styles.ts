@@ -8,7 +8,6 @@ import * as HighlightStyles from 'components/Highlight/styles'
 
 const Sections = styled.section`
   ${({ theme }) => css`
-    ${HeadingStyles.Wrapper},
     ${HighlightStyles.Wrapper},
     ${CardSliderStyles.Wrapper} {
       margin-bottom: ${theme.spacings.medium};
