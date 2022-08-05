@@ -17,8 +17,6 @@ export async function getStaticProps() {
     query: QUERY_HOME
   })
 
-  console.log(sections?.popularGames?.highlight?.alignment)
-
   return {
     props: {
       // revalidate: 60, // 1 minute (in seconds)
