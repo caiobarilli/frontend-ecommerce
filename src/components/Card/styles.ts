@@ -28,8 +28,9 @@ export const Content = styled.div`
 export const Infos = styled.a`
   ${({ theme }) => css`
     grid-area: infos;
-    padding-right: ${theme.spacings.xsmall};
+    padding-right: ${theme.spacings.medium};
     text-decoration: none;
+    max-height: 4rem;
   `}
 `
 
@@ -37,7 +38,6 @@ export const Title = styled.h3`
   ${({ theme }) => css`
     color: ${theme.colors.black};
     font-size: ${theme.font.sizes.small};
-    line-break: anywhere;
   `}
 `
 
