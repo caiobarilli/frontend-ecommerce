@@ -1,4 +1,3 @@
-import { Fragment } from 'react'
 import Document, {
   Html,
   Head,
@@ -29,12 +28,7 @@ export default class MyDocument extends Document {
       const initialProps = await Document.getInitialProps(ctx)
       return {
         ...initialProps,
-        styles: [
-          <Fragment key="1">
-            {initialProps.styles}
-            {sheet.getStyleElement()}
-          </Fragment>
-        ]
+        styles: [initialProps.styles, sheet.getStyleElement()]
       }
     } finally {
       sheet.seal()
