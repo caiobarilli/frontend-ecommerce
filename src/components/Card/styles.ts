@@ -9,10 +9,10 @@ export const Wrapper = styled.div`
 `
 
 export const ImageWrapper = styled.a`
-  height: 14rem;
   overflow: hidden;
   img {
     width: 100%;
+    height: 14rem;
   }
 `
 

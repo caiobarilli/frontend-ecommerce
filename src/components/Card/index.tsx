@@ -30,14 +30,14 @@ const Card = ({
   favorite = false
 }: CardProps) => (
   <S.Wrapper>
-    <Link href={`game/${slug}`} passHref>
+    <Link href={`${slug}`} passHref>
       <S.ImageWrapper>
         <img src={image} alt={title} />
       </S.ImageWrapper>
     </Link>
 
     <S.Content>
-      <Link href={`game/${slug}`} passHref>
+      <Link href={`${slug}`} passHref>
         <S.Infos>
           <S.Title>{title}</S.Title>
           <S.DeveloperTitle>{developer}</S.DeveloperTitle>
