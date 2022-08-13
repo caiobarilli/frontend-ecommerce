@@ -25,3 +25,48 @@ export const ShowMore = styled.div`
     }
   `}
 `
+
+export const ReloadSpin = styled.div`
+  ${({ theme }) => css`
+    svg {
+      width: 6rem;
+      margin: 4rem auto;
+      display: table;
+      color: ${theme.colors.primary};
+      animation-name: spin;
+      animation-duration: 500ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+  `}
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+`
+
+export const FloatingButton = styled.div`
+  svg {
+    animation-name: float;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translatey(0);
+    }
+    50% {
+      transform: translatey(-1rem);
+    }
+    100% {
+      transform: translatey(0);
+    }
+  }
+`

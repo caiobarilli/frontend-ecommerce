@@ -28,7 +28,7 @@ export const gamesMapper = (games: QueryHome_newGames[] | null | undefined) => {
       style: 'currency',
       currency: 'USD'
     }).format(game.price),
-    slug: game.slug
+    slug: '/game/' + game.slug
   }))
 }
 
