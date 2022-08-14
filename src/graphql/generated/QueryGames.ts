@@ -32,4 +32,7 @@ export interface QueryGames {
 
 export interface QueryGamesVariables {
   limit: number;
+  start?: number | null;
+  where?: any | null;
+  sort?: string | null;
 }
