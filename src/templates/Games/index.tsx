@@ -1,5 +1,8 @@
 import Base from 'templates/Base'
 
+import { useRouter } from 'next/router'
+import { ParsedUrlQueryInput } from 'querystring'
+import { parseQueryStringToFilter, parseQueryStringToWhere } from 'utils/filter'
 import { useQueryGames } from 'graphql/queries/games'
 
 import ExploreSidebar, { ItemProps } from 'components/ExploreSidebar'
@@ -16,11 +19,21 @@ export type GamesTemplateProps = {
 }
 
 const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
+  const { push, query } = useRouter()
+
   const { data, loading, fetchMore } = useQueryGames({
-    variables: { limit: 15 }
+    variables: {
+      limit: 15,
+      where: parseQueryStringToWhere({ queryString: query, filterItems }),
+      sort: query.sort as string | null
+    }
   })
 
-  const handleFilter = () => {
+  const handleFilter = (items: ParsedUrlQueryInput) => {
+    push({
+      pathname: '/games',
+      query: items
+    })
     return
   }
 
@@ -31,7 +44,14 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
   return (
     <Base>
       <S.Main>
-        <ExploreSidebar items={filterItems} onFilter={handleFilter} />
+        <ExploreSidebar
+          items={filterItems}
+          onFilter={handleFilter}
+          initialValues={parseQueryStringToFilter({
+            queryString: query,
+            filterItems
+          })}
+        />
         {loading ? (
           <S.ReloadSpin>
             <Reload />

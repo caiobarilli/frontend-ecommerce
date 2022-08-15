@@ -1,10 +1,22 @@
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 import { MockedProvider } from '@apollo/client/testing'
-import { QUERY_GAMES } from 'graphql/queries/games'
 import filterItemsMock from 'components/ExploreSidebar/mock'
 
+import { gamesMock } from './mock'
+
 import Games from '.'
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const useRouter = jest.spyOn(require('next/router'), 'useRouter')
+const push = jest.fn()
+
+useRouter.mockImplementation(() => ({
+  push,
+  query: '',
+  asPath: '',
+  route: '/'
+}))
 
 jest.mock('templates/Base', () => ({
   __esModule: true,
@@ -46,33 +58,7 @@ describe('<Games />', () => {
 
   it('should render sections', async () => {
     renderWithTheme(
-      <MockedProvider
-        mocks={[
-          {
-            request: {
-              query: QUERY_GAMES,
-              variables: { limit: 15 }
-            },
-            result: {
-              data: {
-                games: [
-                  {
-                    name: 'Cyberpunk 2077',
-                    slug: 'cyberpunk-2077',
-                    cover: {
-                      url: 'https://res.cloudinary.com/won-games/image/upload/v1621522979/cyberpunk_2077_fbfcbd0191.jpg'
-                    },
-                    developers: [{ name: 'CD PROJEKT RED' }],
-                    price: 59.99,
-                    __typename: 'Game'
-                  }
-                ]
-              }
-            }
-          }
-        ]}
-        addTypename={false}
-      >
+      <MockedProvider mocks={[gamesMock]} addTypename={false}>
         <Games filterItems={filterItemsMock} />
       </MockedProvider>
     )
