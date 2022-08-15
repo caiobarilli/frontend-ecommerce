@@ -13,6 +13,7 @@ import { KeyboardArrowDown as ArrowDown } from '@styled-icons/material-outlined/
 import { Reload } from '@styled-icons/ionicons-solid/Reload'
 
 import * as S from './styles'
+import Empty from 'components/Empty'
 
 export type GamesTemplateProps = {
   filterItems: ItemProps[]
@@ -28,6 +29,17 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
       sort: query.sort as string | null
     }
   })
+
+  if (!data)
+    return (
+      <S.ReloadSpin>
+        <Reload />
+      </S.ReloadSpin>
+    )
+
+  const { games, gamesConnection } = data
+
+  const hasMoreGames = games.length < (gamesConnection?.values?.length || 0)
 
   const handleFilter = (items: ParsedUrlQueryInput) => {
     push({
@@ -58,28 +70,39 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
           </S.ReloadSpin>
         ) : (
           <section>
-            <Grid>
-              {data?.games.map((game) => (
-                <Card
-                  key={game.slug}
-                  title={game.name}
-                  slug={'/game/' + game.slug}
-                  image={game.cover ? game.cover.url : ''}
-                  developer={game.developers[0].name}
-                  price={new Intl.NumberFormat('en', {
-                    style: 'currency',
-                    currency: 'USD'
-                  }).format(game.price)}
-                />
-              ))}
-            </Grid>
-
-            <S.FloatingButton>
-              <S.ShowMore role="button" onClick={handleShowMore}>
-                <p>Show More</p>
-                <ArrowDown size={35} />
-              </S.ShowMore>
-            </S.FloatingButton>
+            {data?.games.length ? (
+              <>
+                <Grid>
+                  {data?.games.map((game) => (
+                    <Card
+                      key={game.slug}
+                      title={game.name}
+                      slug={'/game/' + game.slug}
+                      image={game.cover ? game.cover.url : ''}
+                      developer={game.developers[0].name}
+                      price={new Intl.NumberFormat('en', {
+                        style: 'currency',
+                        currency: 'USD'
+                      }).format(game.price)}
+                    />
+                  ))}
+                </Grid>
+                {hasMoreGames && (
+                  <S.FloatingButton>
+                    <S.ShowMore role="button" onClick={handleShowMore}>
+                      <p>Show More</p>
+                      <ArrowDown size={35} />
+                    </S.ShowMore>
+                  </S.FloatingButton>
+                )}
+              </>
+            ) : (
+              <Empty
+                title=":("
+                description="We didn't find any games with this filter"
+                hasLink
+              />
+            )}
           </section>
         )}
       </S.Main>

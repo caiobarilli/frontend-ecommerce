@@ -14,6 +14,11 @@ export const QUERY_GAMES = gql`
       }
       price
     }
+    gamesConnection(where: $where) {
+      values {
+        id
+      }
+    }
   }
 `
 

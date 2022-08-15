@@ -3,7 +3,7 @@ import { renderWithTheme } from 'utils/tests/helpers'
 import { MockedProvider } from '@apollo/client/testing'
 import filterItemsMock from 'components/ExploreSidebar/mock'
 
-import { gamesMock } from './mock'
+import { gamesMock, noGamesMock } from './mock'
 
 import Games from '.'
 
@@ -42,12 +42,10 @@ jest.mock('components/Card', () => ({
 describe('<Games />', () => {
   it('should render loading icon', () => {
     const { container } = renderWithTheme(
-      <MockedProvider mocks={[]} addTypename={false}>
+      <MockedProvider mocks={[noGamesMock]} addTypename={false}>
         <Games filterItems={filterItemsMock} />
       </MockedProvider>
     )
-
-    expect(screen.getByTestId('Mock ExploreSidebar')).toBeInTheDocument()
 
     const svgEl = container.querySelector(
       "[xmlns='http://www.w3.org/2000/svg']"
@@ -68,5 +66,17 @@ describe('<Games />', () => {
     ).toBeInTheDocument()
 
     expect(await screen.findByTestId('Mock GameCard')).toBeInTheDocument()
+  })
+
+  it('should render empty when no games found', async () => {
+    renderWithTheme(
+      <MockedProvider mocks={[noGamesMock]} addTypename={false}>
+        <Games filterItems={filterItemsMock} />
+      </MockedProvider>
+    )
+
+    expect(
+      await screen.findByText(/We didn't find any games with this filter/i)
+    ).toBeInTheDocument()
   })
 })
