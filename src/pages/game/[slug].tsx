@@ -72,8 +72,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   })
 
   return {
+    revalidate: 60,
     props: {
-      revalidate: 60,
       cover: game.cover?.src,
       gameInfo: {
         title: game.name,
