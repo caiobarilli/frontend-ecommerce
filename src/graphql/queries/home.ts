@@ -5,49 +5,6 @@ import { GameFragment } from 'graphql/fragments/game'
 import { HighlightFragment } from 'graphql/fragments/highlight'
 
 export const QUERY_HOME = gql`
-  fragment BannerFragment on Banner {
-    image {
-      url
-    }
-    title
-    subtitle
-    button {
-      label
-      link
-    }
-    ribbon {
-      color
-      size
-      text
-    }
-  }
-
-  fragment GameFragment on Game {
-    name
-    slug
-    cover {
-      url
-    }
-    developers {
-      name
-    }
-    price
-  }
-
-  fragment HighlightFragment on ComponentPageHighlight {
-    title
-    subtitle
-    background {
-      url
-    }
-    floatImage {
-      url
-    }
-    buttonLabel
-    buttonLink
-    alignment
-  }
-
   query QueryHome($date: Date!) {
     banners {
       ...BannerFragment
