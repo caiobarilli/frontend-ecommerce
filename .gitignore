@@ -12,6 +12,9 @@
 /.next/
 /out/
 
+# API
+/wongames-api
+
 # production
 /build
 
