@@ -5,7 +5,7 @@ export default [
     price: 'R$ 215,00'
   },
   {
-    img: 'https://api.lorem.space/image/game?w=1042&h=581',
+    img: 'https://api.lorem.space/image/game?w=1042&h=580',
     title: 'Borderlands 3',
     price: 'R$ 215,00'
   }
