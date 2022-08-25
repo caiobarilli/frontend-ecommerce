@@ -1,24 +1,29 @@
-import * as S from './styles'
-import { ShoppingCart as CartIcon } from '@styled-icons/material-outlined/ShoppingCart'
+import Link from 'next/link'
+import Ribbon from 'components/Ribbon'
+import CartButton from 'components/CartButton'
+
 import { Heart as HeartIcon } from '@styled-icons/boxicons-regular/Heart'
 import { Heart as HeartSolidIcon } from '@styled-icons/boxicons-solid/Heart'
-import Ribbon from 'components/Ribbon'
-import Button from 'components/Button'
-import Link from 'next/link'
+
+import formatPrice from 'utils/format-price'
+
+import * as S from './styles'
 
 export type CardProps = {
+  id: string
   slug: string
   title: string
   developer: string
   image: string
-  promotionPrice?: string
-  price: string
+  promotionPrice?: number
+  price: number
   ribbon?: string
   favorite?: boolean
   onFavoriteHandler?: () => void
 }
 
 const Card = ({
+  id,
   slug,
   title,
   developer,
@@ -54,9 +59,12 @@ const Card = ({
 
       <S.ActionsWrapper>
         <S.BuyWrapper>
-          {!!promotionPrice && <S.Price hasDiscount>{price}</S.Price>}
-          <S.Price>{promotionPrice || price}</S.Price>
-          <Button size="small" icon={<CartIcon aria-label="Add to Cart" />} />
+          {!!promotionPrice && (
+            <S.Price hasDiscount>{formatPrice(price)}</S.Price>
+          )}
+          <S.Price>{formatPrice(promotionPrice || price)}</S.Price>
+
+          <CartButton id={id} />
         </S.BuyWrapper>
       </S.ActionsWrapper>
     </S.Content>

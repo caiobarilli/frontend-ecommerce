@@ -31,14 +31,14 @@ describe('<Card />', () => {
   })
 
   it('should render the promotional price if it is passed', () => {
-    renderWithTheme(<Card {...item} promotionPrice="9,00" />)
+    renderWithTheme(<Card {...item} />)
 
-    expect(screen.getByText(/9,00/i)).not.toHaveStyle({
+    expect(screen.getByText(/9.99/i)).not.toHaveStyle({
       textDecoration: 'line-through',
       color: '#8F8F8F'
     })
 
-    expect(screen.getByText(/10,00/i)).toHaveStyle({
+    expect(screen.getByText(/10.00/i)).toHaveStyle({
       textDecoration: 'line-through',
       color: '#8F8F8F'
     })
