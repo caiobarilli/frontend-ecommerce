@@ -4,7 +4,7 @@ import CartDropdown from '.'
 import items from 'components/CartList/mock'
 
 export default {
-  title: 'COMPOUND COMPONENTS/CartDropdown',
+  title: 'COMPOUND COMPONENTS/Cart Dropdown',
   component: CartDropdown,
   parameters: {
     backgrounds: {
