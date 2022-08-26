@@ -4,6 +4,7 @@ import { renderWithTheme } from 'utils/tests/helpers'
 import GameInfo from '.'
 
 const props = {
+  id: '1',
   title: 'The Last of Us Part II',
   description: 'The last chapter of the saga',
   price: '129.99'

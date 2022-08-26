@@ -76,14 +76,12 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
                   {data?.games.map((game) => (
                     <Card
                       key={game.slug}
+                      id={game.id}
                       title={game.name}
                       slug={'/game/' + game.slug}
                       image={game.cover ? game.cover.url : ''}
                       developer={game.developers[0].name}
-                      price={new Intl.NumberFormat('en', {
-                        style: 'currency',
-                        currency: 'USD'
-                      }).format(game.price)}
+                      price={game.price}
                     />
                   ))}
                 </Grid>
