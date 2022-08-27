@@ -33,6 +33,12 @@ export const Wrapper = styled.div<WrapperProps>`
   `}
 `
 
+export const Content = styled.div`
+  max-height: 36rem;
+  min-width: 56rem;
+  overflow-y: auto;
+`
+
 export const Footer = styled.div`
   ${({ theme }) => css`
     background: ${tint(0.2, theme.colors.lightGray)};

@@ -63,7 +63,6 @@ const Card = ({
             <S.Price hasDiscount>{formatPrice(price)}</S.Price>
           )}
           <S.Price>{formatPrice(promotionPrice || price)}</S.Price>
-
           <CartButton id={id} />
         </S.BuyWrapper>
       </S.ActionsWrapper>

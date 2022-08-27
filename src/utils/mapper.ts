@@ -23,13 +23,11 @@ export const bannerMapper = (banners: QueryHome_banners[]) => {
 
 export const gamesMapper = (games: QueryHome_newGames[] | null | undefined) => {
   return games?.map((game) => ({
+    id: game.id,
     title: game.name,
     developer: game.developers[0].name,
     image: game.cover?.url,
-    price: new Intl.NumberFormat('en', {
-      style: 'currency',
-      currency: 'USD'
-    }).format(game.price),
+    price: game.price,
     slug: '/game/' + game.slug
   }))
 }

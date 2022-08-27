@@ -4,6 +4,9 @@ import styled, { css, DefaultTheme } from 'styled-components'
 export const Wrapper = styled.main`
   ${({ theme }) => css`
     background: ${theme.colors.white};
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   `}
 `
 
