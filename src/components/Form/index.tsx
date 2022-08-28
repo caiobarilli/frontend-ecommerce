@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-export const FormWrapper = styled.form`
+export const FormWrapper = styled.div`
   ${({ theme }) => css`
     a {
       color: ${theme.colors.black};

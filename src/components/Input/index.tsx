@@ -10,14 +10,15 @@ export type InputProps = {
   disabled?: boolean
   hasError?: boolean
   error?: string
-  onInput?: (value: string) => void
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onInputChange?: (event: any) => void
 } & InputHTMLAttributes<HTMLInputElement>
 
 const Input = ({
   id,
   label,
   icon,
-  onInput,
+  onInputChange,
   initialValue = '',
   iconPosition = 'left',
   disabled = false,
@@ -30,7 +31,7 @@ const Input = ({
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.currentTarget.value
     setInputValue(value)
-    !!onInput && onInput(value)
+    !!onInputChange && onInputChange(value)
   }
 
   return (

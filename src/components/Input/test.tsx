@@ -1,31 +1,31 @@
-import { screen, waitFor } from '@testing-library/react'
+import { waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen } from 'utils/test-utils'
 import { Email } from '@styled-icons/material-outlined'
 
 import Input from '.'
 
 describe('<Input />', () => {
   it('should render a input text with a label', () => {
-    renderWithTheme(<Input id="name" name="name" label="Name" />)
+    render(<Input id="name" name="name" label="Name" />)
 
     expect(screen.getByText(/Name/i)).toBeInTheDocument()
   })
 
   it('should render a input text with a placeholder', () => {
-    renderWithTheme(<Input placeholder="Type your name" />)
+    render(<Input placeholder="Type your name" />)
 
     expect(screen.getByPlaceholderText(/Type your name/i)).toBeInTheDocument()
   })
 
   it('should render a input text with Icon in the left position by default', () => {
-    renderWithTheme(<Input icon={<Email data-testid="icon" />} />)
+    render(<Input icon={<Email data-testid="icon" />} />)
 
     expect(screen.getByTestId('icon')).toBeInTheDocument()
   })
 
   it('should render a input text with icon in the right position', () => {
-    renderWithTheme(
+    render(
       <Input
         id="emailInput"
         icon={<Email data-testid="icon" />}
@@ -39,9 +39,10 @@ describe('<Input />', () => {
   })
 
   it('should get a new value on input change', async () => {
-    const onInput = jest.fn()
-    renderWithTheme(
-      <Input id="name" name="name" label="Name" onInput={onInput} />
+    const onInputChange = jest.fn()
+
+    render(
+      <Input id="name" name="name" label="Name" onInputChange={onInputChange} />
     )
 
     const input = screen.getByRole('textbox')
@@ -50,15 +51,15 @@ describe('<Input />', () => {
 
     await waitFor(() => {
       expect(input).toHaveValue(text)
-      expect(onInput).toHaveBeenCalledTimes(text.length)
+      expect(onInputChange).toHaveBeenCalledTimes(text.length)
     })
 
-    expect(onInput).toHaveBeenCalledWith(text)
+    expect(onInputChange).toHaveBeenCalledWith(text)
   })
 
   it('should not get a new value on input change if is disabled', async () => {
     const onInput = jest.fn()
-    renderWithTheme(
+    render(
       <Input id="name" name="name" label="Name" onInput={onInput} disabled />
     )
 
@@ -74,7 +75,7 @@ describe('<Input />', () => {
   })
 
   it('should render a input text with a error', () => {
-    renderWithTheme(<Input error="This is a error" hasError={true} />)
+    render(<Input error="This is a error" hasError={true} />)
 
     expect(screen.getByText(/This is a error/i)).toBeInTheDocument()
   })
