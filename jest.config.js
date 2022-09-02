@@ -10,6 +10,7 @@ module.exports = {
     '!**/src/graphql/**/*.ts/**',
     '!**/src/utils/**/*.ts/**',
     '!**/src/**/mock.ts/**',
+    '!**/src/pages/api/auth/*.ts/**',
     '!**/src/**/stories.tsx/**'
   ],
   setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
