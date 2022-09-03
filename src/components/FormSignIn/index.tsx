@@ -1,6 +1,6 @@
 import Button from 'components/Button'
 import Input from 'components/Input'
-import Form from 'components/Form'
+import Form, { FormLoading } from 'components/Form'
 import Link from 'next/link'
 
 import { useState } from 'react'
@@ -11,6 +11,8 @@ import { Email, Lock } from '@styled-icons/material-outlined'
 
 const FormSignIn = () => {
   const [values, setValues] = useState({})
+  const [loading, setLoading] = useState(false)
+
   const { push } = useRouter()
 
   const handleInput = (field: string, value: string) => {
@@ -19,6 +21,7 @@ const FormSignIn = () => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
+    setLoading(true)
 
     // sign in
     const result = await signIn('credentials', {
@@ -30,6 +33,8 @@ const FormSignIn = () => {
     if (result?.url) {
       return push(result?.url)
     }
+
+    setLoading(false)
 
     // jogar o erro
     console.error('email ou senha inválida')
@@ -57,7 +62,9 @@ const FormSignIn = () => {
         <Link href="/recovery">
           <a>Forgot your password?</a>
         </Link>
-        <Button> Sign in now </Button>
+        <Button type="submit" size="large" fullWidth disabled={loading}>
+          {loading ? <FormLoading /> : <span>Sign in now</span>}
+        </Button>
         <>
           Don’t have an account?{' '}
           <Link href="/sign-up">
