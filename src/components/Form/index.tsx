@@ -31,3 +31,10 @@ export type FormProps = {
 const Form = ({ children }: FormProps) => <FormWrapper>{children}</FormWrapper>
 
 export default Form
+
+export const FormLoading = styled.img.attrs(() => ({
+  src: '/img/dots.svg',
+  alt: 'Waiting...'
+}))`
+  width: 4rem;
+`
