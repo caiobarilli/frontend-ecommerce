@@ -4,7 +4,7 @@ import Button from 'components/Button'
 import { Email, Lock } from '@styled-icons/material-outlined'
 import { UserCircle } from '@styled-icons/boxicons-regular/UserCircle'
 
-import Form from 'components/Form'
+import Form, { FormLoading } from 'components/Form'
 import { useState } from 'react'
 import { useMutation } from '@apollo/client'
 import { UsersPermissionsRegisterInput } from 'graphql/generated/globalTypes'
@@ -17,7 +17,7 @@ const FormSignUp = () => {
     password: ''
   })
 
-  const [createUser] = useMutation(MUTATION_REGISTER)
+  const [createUser, { loading }] = useMutation(MUTATION_REGISTER)
 
   const handleInput = (field: string, value: string) => {
     setValues((s) => ({ ...s, [field]: value }))
@@ -74,7 +74,9 @@ const FormSignUp = () => {
           name="confirm-password"
           onInputChange={(v) => handleInput('confirm-password', v)}
         />
-        <Button> Sign in now </Button>
+        <Button size="large" fullWidth disabled={loading}>
+          {loading ? <FormLoading /> : <span>Sign up now</span>}
+        </Button>
       </form>
     </Form>
   )
