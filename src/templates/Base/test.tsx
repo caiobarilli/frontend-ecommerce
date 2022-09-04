@@ -1,7 +1,12 @@
-import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen } from 'utils/test-utils'
 
 import Base from '.'
+
+jest.mock('next-auth/client', () => ({
+  useSession: jest.fn(() => {
+    return [{ session: null }]
+  })
+}))
 
 jest.mock('components/Menu', () => {
   return {
@@ -22,10 +27,17 @@ jest.mock('components/Footer', () => {
 })
 
 describe('<Base />', () => {
-  it('should render the heading', () => {
-    renderWithTheme(<Base>children of bodom</Base>)
+  it('should render menu, footer and children', () => {
+    render(
+      <Base>
+        <h1>Heading</h1>
+      </Base>
+    )
 
     expect(screen.getByTestId('Mock Menu')).toBeInTheDocument()
     expect(screen.getByTestId('Mock Footer')).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /heading/i })
+    ).toBeInTheDocument()
   })
 })
