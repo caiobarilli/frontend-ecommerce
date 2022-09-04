@@ -4,6 +4,13 @@ import theme from 'styles/theme'
 
 import ProfileMenu from '.'
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const useRouter = jest.spyOn(require('next/router'), 'useRouter')
+
+useRouter.mockImplementation(() => ({
+  query: {}
+}))
+
 describe('<ProfileMenu />', () => {
   it('should render the menu', () => {
     renderWithTheme(<ProfileMenu />)
@@ -13,7 +20,9 @@ describe('<ProfileMenu />', () => {
 
     expect(screen.getByRole('link', { name: /my cards/i })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /my orders/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /sign out/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: /sign out/i })
+    ).toBeInTheDocument()
   })
 
   it('should render the menu with an active link defined', () => {
