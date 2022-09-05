@@ -3,6 +3,7 @@ import * as S from './styles'
 
 export type InputProps = {
   id?: string
+  name?: string
   label?: string
   initialValue?: string
   icon?: React.ReactNode
@@ -16,6 +17,7 @@ export type InputProps = {
 
 const Input = ({
   id,
+  name,
   label,
   icon,
   onInputChange,
@@ -44,15 +46,16 @@ const Input = ({
           </S.Icon>
         )}
         <S.Input
-          id={id}
+          name={name}
           value={inputValue}
           onChange={onChangeHandler}
           iconPosition={iconPosition}
           disabled={disabled}
+          {...(label ? { id: name } : {})}
           {...props}
         />
       </S.InputWrapper>
-      {hasError && <S.Error>{error}</S.Error>}
+      {!!error && <S.Error>{error}</S.Error>}
     </S.Wrapper>
   )
 }
